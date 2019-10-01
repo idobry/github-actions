@@ -20,7 +20,7 @@ for file in $files; do
         if helm lint $chart && helm kubeval --ignore-missing-schemas $chart ; then
             echo "${file} is valid"
         else
-            msg2slack "Hey ${name}, ${file} that belongs to ${chart} is NOT valid"
+            msg2slack "Hey ${name}, ${file} is NOT valid"
         fi
         break;;
     *.y*ml*) 
