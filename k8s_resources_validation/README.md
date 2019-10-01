@@ -2,7 +2,7 @@
 
 Dependencies:
 * Create GitHub secret which will contain the Slack's webhook url
-* Charts must be under '/charts' folder
+* Charts must be under `/charts` folder
 
 workflow example:
 
