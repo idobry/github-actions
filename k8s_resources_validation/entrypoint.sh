@@ -14,7 +14,7 @@ files=$(git diff HEAD^ --name-only)
 for file in $files; do
 
     case "$file" in
-    charts\/*\/templates\/*) 
+    charts\/*) 
         chart_name="$(cut -d'/' -f2 <<<"$file")"
         chart=charts/$chart_name
         if helm lint $chart && helm kubeval --ignore-missing-schemas $chart ; then
