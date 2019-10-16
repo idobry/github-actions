@@ -26,7 +26,7 @@ for file in $files; do
         fi
         ;;
     *.y*ml*) 
-        if [ -f "$file" ] || kubeval --ignore-missing-schemas "$file" ; then
+        if [ -f "$file" ] && kubeval --ignore-missing-schemas "$file" ; then
             echo "${file} is valid"
         else
             msg2slack "Hey ${name}, ${file} is NOT valid"
