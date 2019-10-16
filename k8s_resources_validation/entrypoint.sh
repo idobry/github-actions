@@ -16,7 +16,7 @@ files=$(git diff HEAD^ --name-only)
 for file in $files; do
 
     case "$file" in
-    "charts\/*") 
+    charts\/*) 
         chart_name="$(cut -d'/' -f2 <<<"$file")"
         chart=charts/$chart_name
         if helm lint "$chart" && helm kubeval --ignore-missing-schemas "$chart" ; then
@@ -25,7 +25,7 @@ for file in $files; do
             msg2slack "Hey ${name}, ${file} is NOT valid"
         fi
         ;;
-    "*.y*ml*") 
+    *.y*ml*) 
         if [ -f "$file" ] || kubeval --ignore-missing-schemas "$file" ; then
             echo "${file} is valid"
         else
